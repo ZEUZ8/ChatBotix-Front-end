@@ -1,0 +1,106 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: bottom;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
+#root{
+  width: 100%;
+}
+
+.chat-input-holder{
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  position: absolute;
+  bottom: 2rem;
+  left:0;right: 0;
+}
+
+.chat-input-textArea{
+  background-color: #40414f;
+  padding: 12px;
+  color: white;
+  font-size: 1.25em;
+  width: 90%;
+  border-radius: 5px;
+  border: none;
+  margin: 12px;
+  outline: none;
+  box-shadow: 0 0 8px 0 rgba(0, 0,0,0.5);
+}
+
+ .chat-log{
+  text-align: left;
+
+ }
+ .chat-message.chatgpt{
+
+  background-color: rgba(255, 255, 255, 0.1);
+ 
+ }
+ .chat-message-center{
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  padding: 12px;
+  padding-left: 24px;
+  padding-right: 24px;
+ }
+ .avathar{
+  background-color: white;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+ }
+
+ .avathar.chatgpt{
+  padding: 2px;
+  background: #0da37f;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+ }
+
+ .message{
+  padding-left: 40px;
+  padding-right: 40px;
+ }
