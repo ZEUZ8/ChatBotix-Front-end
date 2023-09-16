@@ -1,15 +1,17 @@
 import { useState, useRef, useEffect } from "react";
 import "./App.css";
 import ChatMessage from "./components/ChatMessage";
+import { useChat } from "./context/context";
 
 function App() {
   const [input, setInput] = useState("");
-  const [chatLog, setChatLog] = useState([]);
   const [isOpen,setIsOpen] = useState(false)
+  const { chatLog, clearTheChat, addMessageToChatLog } = useChat();
+
   const Scroll = useRef();
 
   function clearChat() {
-    setChatLog([]);
+    clearTheChat()
   }
 
   const handleSubmit = async (e) => {
@@ -18,7 +20,7 @@ function App() {
     let chatLogNew = [...chatLog, { user: "user", message: `${input}` }];
 
     setInput("");
-    setChatLog(chatLogNew);
+    addMessageToChatLog({ user: "user", message: `${input}` });
 
     const messages = chatLogNew.map((message) => message.message).join("\n");
     try {
@@ -28,12 +30,11 @@ function App() {
         body: JSON.stringify({ message: messages }),
       });
       const data = await response.json();
-      console.log(data?.data?.content,'the response')
+
       if(data?.data?.content){
-        setChatLog([
-          ...chatLogNew,
+        addMessageToChatLog(
           { user: "assistant", message: `${data?.data?.content}` },
-        ]);
+        );
       }else{
         setIsOpen(true)
       }
